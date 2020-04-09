@@ -9,4 +9,9 @@ class TasksController < ApplicationController
       render 'new.js.erb'
     end
   end
+
+  def destroy
+    Task.find(params[:id]).destroy
+    render 'destroy.js.erb'
+  end
 end

@@ -3,7 +3,7 @@
     <%= link_to 'Nova tarefa', '#', data: {toggle: 'modal', target: '#new-task-modal'}%>
     <%= render partial: 'tasks/new' %>
     <div id="tasks">
-      <%= render @tasks if @tasks.present?%>
+      <%= render @tasks if @tasks.present? %>
     </div>
   <% else %>
     <h3>Bem vindo ao TODOlist</h3>
