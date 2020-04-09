@@ -12,8 +12,10 @@ feature 'User does login or logout' do
       click_on 'Log in'
 
       expect(page).to have_content(user.email)
-      expect(page).to have_content('Sair')
-      expect(page).not_to have_content('Entrar')  
+      expect(page).to have_link('Sair')
+      expect(page).to have_link('Nova tarefa')
+      expect(page).not_to have_link('Entrar')  
+      expect(page).not_to have_content('Bem vindo ao TODOlist')  
     end
 
     scenario 'and fill with wrong email and password', js: true do
@@ -46,6 +48,7 @@ feature 'User does login or logout' do
       expect(page).not_to have_content(user.email)
       expect(page).not_to have_link('Sair')
       expect(page).to have_link('Entrar')
+      expect(page).to have_content('Bem vindo ao TODOlist')
     end
   end
 end
