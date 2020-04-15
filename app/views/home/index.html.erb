@@ -1,11 +1,12 @@
 <div class="container">
   <% if user_signed_in? %>
-    <%= link_to 'Nova tarefa', '#', data: {toggle: 'modal', target: '#new-task-modal'}%>
-    <%= render partial: 'tasks/new' %>
+    <%= link_to 'Nova tarefa', new_task_path, remote: true %>
     <div id="tasks">
       <%= render @tasks if @tasks.present? %>
     </div>
+    <%= render 'shared/modal' %>
   <% else %>
     <h3>Bem vindo ao TODOlist</h3>
   <% end %>
 </div>
+

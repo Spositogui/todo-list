@@ -1,3 +1,3 @@
-$('.delete').bind('ajax:success', function() {
+$('.delete').on('ajax:success', function() {
     $(this).closest('tr').fadeOut()
 })

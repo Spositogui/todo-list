@@ -7,9 +7,9 @@ if Rails.env.production?
 end
 require 'rspec/rails'
 require 'capybara/rspec'
-require "selenium/webdriver"
+require 'selenium/webdriver'
 
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }  
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

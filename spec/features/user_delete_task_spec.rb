@@ -21,11 +21,11 @@ feature 'User delete task' do
 
     login_as(user, scope: :user)
     visit root_path
-    page.all(".delete")[0].click
-    page.all(".delete")[2].click
+    page.all('.delete')[0].click
+    page.all('.delete')[2].click
 
     expect(page).to have_content('Task 2')
-    expect(page).not_to have_content('Task 1')  
-    expect(page).not_to have_content('Task 3')  
+    expect(page).not_to have_content('Task 1')
+    expect(page).not_to have_content('Task 3')
   end
 end

@@ -1,7 +1,7 @@
-if ENV["LAUNCH_BROWSER"]
+if ENV['LAUNCH_BROWSER']
   # To test with browser opened in VNC screen sharing window
   Capybara.configure do |config|
-    config.server_host = "web.com"
+    config.server_host = 'web.com'
     config.javascript_driver = :selenium_chrome
   end
 
@@ -12,11 +12,11 @@ if ENV["LAUNCH_BROWSER"]
       desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
         chromeOptions: {
           args: [
-            "window-size=1024,768"
+            'window-size=1024,768'
           ]
         }
       ),
-      url: "http://chrome:4444/wd/hub"
+      url: 'http://chrome:4444/wd/hub'
     )
   end
 else
@@ -36,3 +36,4 @@ else
 
   Capybara.javascript_driver = :chrome_headless
 end
+

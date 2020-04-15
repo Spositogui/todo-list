@@ -29,9 +29,9 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-group :test do  
+group :test do
   gem 'database_cleaner-active_record'
-  gem "selenium-webdriver"
+  gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.0'
 end
 

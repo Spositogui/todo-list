@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  resources :tasks, only: [:create, :destroy]
+  resources :tasks, only: %i[new create edit update destroy]
 end

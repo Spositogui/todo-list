@@ -14,21 +14,21 @@ feature 'User create a new task' do
     click_on 'Criar'
 
     expect(page).to have_content('Comprar pão')
-    expect(Task.count).to eq(total + 1)  
+    expect(Task.count).to eq(total + 1)
   end
 
   scenario 'and alredy had a task', js: true do
     user = create(:user)
     create(:task, title: 'Tarefa 1', user: user)
-    
+
     login_as(user, scope: :user)
     visit root_path
     click_on 'Nova tarefa'
     fill_in 'Título', with: 'Tarefa 2'
     click_on 'Criar'
 
-    expect(page).to have_content('Tarefa 1')  
-    expect(page).to have_content('Tarefa 2')  
+    expect(page).to have_content('Tarefa 1')
+    expect(page).to have_content('Tarefa 2')
     expect(Task.count).to eq(2)
   end
 
