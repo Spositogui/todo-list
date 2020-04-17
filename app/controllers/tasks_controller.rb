@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-
+  before_action :set_task, only: %i[edit update destroy]
   def new
     @task = Task.new
     render 'new.js.erb'
@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     @task = Task.new(params.require(:task).permit(:title, :description))
     @task.user_id = current_user.id
     if @task.save
-      @tasks = current_user.tasks
+      @tasks = current_user.tasks.order(:created_at)
       render 'create.js.erb'
     else
       render 'shared/errors.js.erb'
@@ -17,14 +17,12 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
     render 'edit.js.erb'
   end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update(params.require(:task).permit(:title, :description))
-      @tasks = current_user.tasks
+      @tasks = current_user.tasks.order(:created_at)
       render 'update.js.erb'
     else
       render 'shared/errors.js.erb'
@@ -32,7 +30,13 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    Task.find(params[:id]).destroy
+    @task.destroy
     render 'destroy.js.erb'
   end
+
+  private
+    
+    def set_task
+      @task = Task.find(params[:id])
+    end
 end
