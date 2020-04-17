@@ -1,8 +1,10 @@
 <div class="container">
   <% if user_signed_in? %>
-    <%= link_to 'Nova tarefa', new_task_path, remote: true %>
+    <%= link_to new_task_path, remote: true do %>
+      <i class="fas fa-plus-circle fa-3x" alt="Nova tarefa" title="Nova tarefa"></i>
+    <% end %>
     <div id="tasks">
-      <%= render @tasks if @tasks.present? %>
+      <%= render 'tasks/task' if @tasks.present? %>
     </div>
     <%= render 'shared/modal' %>
   <% else %>
