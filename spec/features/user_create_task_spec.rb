@@ -7,7 +7,7 @@ feature 'User create a new task' do
 
     login_as(user, scope: :user)
     visit root_path
-    click_on 'Nova tarefa'
+    find(:css, 'i.fas.fa-plus-circle').click #new task
 
     fill_in 'Título', with: 'Comprar pão'
     fill_in 'Descrição', with: 'Pariatur Lorem esse tempor fugiat velit qui.'
@@ -23,7 +23,7 @@ feature 'User create a new task' do
 
     login_as(user, scope: :user)
     visit root_path
-    click_on 'Nova tarefa'
+    find(:css, 'i.fas.fa-plus-circle').click #new task
     fill_in 'Título', with: 'Tarefa 2'
     click_on 'Criar'
 
@@ -38,7 +38,7 @@ feature 'User create a new task' do
 
     login_as(user, scope: :user)
     visit root_path
-    click_on 'Nova tarefa'
+    find(:css, 'i.fas.fa-plus-circle').click #new task
     fill_in 'Descrição', with: 'Do ut nulla minim irure aliquip do.'
     click_on 'Criar'
 

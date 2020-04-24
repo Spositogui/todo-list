@@ -1,4 +1,4 @@
-<div class="container">
+<main class="container">
   <% if user_signed_in? %>
     <%= link_to new_task_path, remote: true do %>
       <i class="fas fa-plus-circle fa-3x" alt="Nova tarefa" title="Nova tarefa"></i>
@@ -10,4 +10,4 @@
   <% else %>
     <h3>Bem vindo ao TODOlist</h3>
   <% end %>
-</div>
+  </main>

@@ -13,7 +13,7 @@ feature 'User does login or logout' do
 
       expect(page).to have_content(user.email)
       expect(page).to have_link('Sair')
-      expect(page).to have_link('Nova tarefa')
+      expect(page).to have_css('i.fas.fa-plus-circle')#new task icon
       expect(page).not_to have_link('Entrar')
       expect(page).not_to have_content('Bem vindo ao TODOlist')
     end

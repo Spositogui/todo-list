@@ -5,4 +5,5 @@ $(document).ready(function(){
   $('#modal').on('hidden.bs.modal', function() {
     $('.errors').html('')//switch div alert with a blank content
   })
-})
+});
+

@@ -1,12 +1,55 @@
+@import url("//fonts.googleapis.com/css2?family=Anton&display=swap");
+
+body {
+  overflow: hidden;
+}
 .delete-btn {
+  max-width: 50px;
   text-align: end;
+}
+.dropdown {max-width: 0px;}
+.dropdown-item span {
+  color: #fff;
+}
+.dropdown-item:hover {
+  background-color: #4d4d4d!important;
+}
+.dropdown-menu {
+  background-color: #343a40!important;
 }
 .fa-plus-circle {
   margin-bottom: 12px;
 }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.footer span {
+  font-family: monospace;
+}
+.priority-default {color: #fff}
+.priority-primary {color: #4395ec;}
+.priority-warning {color: #ffff00;}
+.priority-danger {color: #ff0018;}
 .table {
   margin: 0 auto;
   max-width: 500px;
+}
+.table th, .table td {
+  vertical-align: middle !important;
+}
+.task-title {
+  font-family: 'Anton', sans-serif;
+}
+.task-title a {
+  color: white;
+  text-decoration: none;
+}
+#tasks {
+  height: 25rem;
+  overflow-y: scroll;
 }
 
 

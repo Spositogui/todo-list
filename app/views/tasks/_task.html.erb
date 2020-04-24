@@ -2,7 +2,32 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.title, edit_task_path(task), remote: true %></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="far fa-flag priority-<%= task.priority %>"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to change_priority_task_path(task, priority: 'danger'), class: 'dropdown-item', method: :patch, remote: true do %>
+                <i class="far fa-flag priority-danger"></i>
+                <span class="ml-3">Prioridade 1</span>
+              <% end %>
+              <%= link_to change_priority_task_path(task, priority: 'warning'), class: 'dropdown-item', method: :patch, remote: true do %>
+                <i class="far fa-flag priority-warning"></i>
+                <span class="ml-3">Prioridade 2</span>
+              <% end %>
+              <%= link_to change_priority_task_path(task, priority: 'primary'), class: 'dropdown-item', method: :patch, remote: true do %>
+                <i class="far fa-flag priority-primary"></i>
+                <span class="ml-3">Prioridade 3</span>
+              <% end%>
+              <%= link_to change_priority_task_path(task, priority: 'default'), class: 'dropdown-item', method: :patch, remote: true do %>
+                <i class="far fa-flag priority-default"></i>
+                <span class="ml-3">Prioridade 4</span>
+                <% end %>
+            </div>
+          </div>
+        </td>
+        <td class="task-title"><%= link_to task.title, edit_task_path(task), remote: true %></td>
         <td class="delete-btn"><%= link_to 'Deletar', task, method: :delete, remote: true, class: 'delete btn btn-danger' %></td>
       </tr>
     <% end %>
